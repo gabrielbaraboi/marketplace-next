@@ -1,4 +1,3 @@
-import Footer from '../components/footer';
 import '@/styles/globals.css';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
@@ -23,15 +22,11 @@ export default function RootLayout({
         <html lang='en' className='dark text-slate-200'>
             <body
                 className={cn(
-                    'min-h-screen bg-gray-100 antialiased',
+                    'min-h-screen bg-gray-900 antialiased',
                     inter.className
                 )}
             >
-                <Navbar />
-                <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-                    {children}
-                </main>
-                <Footer />
+                {children}
             </body>
         </html>
     );

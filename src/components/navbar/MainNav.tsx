@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+// TODO make a dynamic nav
+// TODO make active
 const MainNav = () => {
     return (
         <nav className='flex flex-row items-start gap-8 py-2'>

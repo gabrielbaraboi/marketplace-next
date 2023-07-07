@@ -7,19 +7,21 @@ import { UserNav } from './UserNav';
 import { buttonVariants } from '../ui/button';
 import MainNav from './MainNav';
 
+//TODO make navbar for mobile (add hamburger menu)
+
 const Navbar = async () => {
     // const session = await getServerSession(); // TODO: get user session
     const session = {
-        user: {
-            name: 'John Doe',
-            email: 'test@.gmail.com',
-            image: '/avatar.jpg',
-        },
-        // user: null,
+        // user: {
+        //     name: 'John Doe',
+        //     email: 'test@.gmail.com',
+        //     image: '/avatar.jpg',
+        // },
+        user: null,
     };
 
     return (
-        <header className='fixed top-0 z-10 h-fit w-full bg-gray-800 shadow-sm'>
+        <header className='fixed inset-x-0 top-0 z-10 h-fit w-full bg-gray-800 shadow-sm'>
             <Container>
                 <div className='flex flex-col'>
                     <div className='flex h-16 items-center justify-between'>
