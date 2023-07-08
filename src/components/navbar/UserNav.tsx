@@ -16,6 +16,7 @@ import {
 import React from 'react';
 import { Button } from '../ui/button';
 import { UserAvatar } from './UserAvatar';
+import { LogOut } from 'lucide-react';
 
 interface UserNavProps extends React.HTMLAttributes<HTMLDivElement> {
     user: Pick<User, 'name' | 'email' | 'image'>;
@@ -82,6 +83,7 @@ export function UserNav({ user }: UserNavProps) {
                     }}
                 >
                     Sign out
+                    <LogOut className='ml-2 h-4 w-4 text-red-400' />
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

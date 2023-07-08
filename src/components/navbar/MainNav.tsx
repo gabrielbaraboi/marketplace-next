@@ -1,4 +1,4 @@
-import Link from 'next/link';
+'use client';
 import Navigation from './Navigation';
 
 // TODO this navigation links are hardcoded, make it dynamic by adding them to database and creating new from admin panel

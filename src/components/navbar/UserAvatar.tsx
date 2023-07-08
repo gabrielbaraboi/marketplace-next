@@ -1,5 +1,4 @@
 import { User } from '@prisma/client';
-// import { AvatarProps } from "@radix-ui/react-avatar";
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import Image from 'next/image';
 

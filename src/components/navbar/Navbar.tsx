@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { UserNav } from './UserNav';
 import { buttonVariants } from '../ui/button';
 import MainNav from './MainNav';
+import { LogIn } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 //TODO make navbar for mobile (add hamburger menu)
 
@@ -30,8 +32,15 @@ const Navbar = async () => {
                         {session?.user ? (
                             <UserNav user={session.user} />
                         ) : (
-                            <Link href='/sign-in' className={buttonVariants()}>
+                            <Link
+                                href='/sign-in'
+                                className={cn(
+                                    buttonVariants(),
+                                    'right-4 top-4 md:right-8 md:top-8'
+                                )}
+                            >
                                 Sign In
+                                <LogIn className='ml-2 h-4 w-4' />
                             </Link>
                         )}
                     </div>

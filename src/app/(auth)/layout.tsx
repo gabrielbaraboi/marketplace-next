@@ -2,6 +2,7 @@ import SignIn from '@/components/SignInForm';
 import Logo from '@/components/navbar/Logo';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -16,9 +17,10 @@ export default function AuthLayout({
                 href='/'
                 className={cn(
                     buttonVariants({ variant: 'default' }),
-                    'absolute right-4 top-4 md:right-8 md:top-8'
+                    'absolute right-4 top-4 md:right-8 md:top-4'
                 )}
             >
+                <ChevronLeft className='mr-2 h-4 w-4' />
                 Home
             </Link>
             <div className='relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex'>
