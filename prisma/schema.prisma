@@ -47,11 +47,11 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("verifiedAt")
   image         String?
-
-  accounts Account[]
-  sessions Session[]
-  products Product[]
-  orders   Order[]
+  password      String?
+  accounts      Account[]
+  sessions      Session[]
+  products      Product[]
+  orders        Order[]
 }
 
 model VerificationToken {

@@ -8,19 +8,12 @@ import { buttonVariants } from '../ui/button';
 import MainNav from './MainNav';
 import { LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { authOptions } from '@/lib/auth';
 
 //TODO make navbar for mobile (add hamburger menu)
 
 const Navbar = async () => {
-    // const session = await getServerSession(); // TODO: get user session
-    const session = {
-        // user: {
-        //     name: 'John Doe',
-        //     email: 'test@.gmail.com',
-        //     image: '/avatar.jpg',
-        // },
-        user: null,
-    };
+    const session = await getServerSession(authOptions);
 
     return (
         <header className='fixed inset-x-0 top-0 z-10 h-fit w-full bg-gray-800 shadow-sm'>

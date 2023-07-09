@@ -2,6 +2,8 @@ import '@/styles/globals.css';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/navbar/Navbar';
+import { Toaster } from '@/components/ui/toaster';
+import Providers from '@/components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,7 +14,6 @@ export const metadata = {
     description: 'A marketplace for digital assets',
 };
 
-// TODO: add dark mode (theme provider)
 export default function RootLayout({
     children,
 }: {
@@ -26,7 +27,9 @@ export default function RootLayout({
                     inter.className
                 )}
             >
-                {children}
+                <Providers>{children}</Providers>
+
+                <Toaster />
             </body>
         </html>
     );
