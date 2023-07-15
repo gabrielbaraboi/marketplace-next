@@ -12,7 +12,7 @@ const page: FC<pageProps> = ({}) => {
                     Create an account
                 </h1>
                 <p className='text-sm text-muted-foreground'>
-                    Enter your email below to create your account
+                    Enter your credentials below to create an account
                 </p>
             </div>
             <SignUpForm />
