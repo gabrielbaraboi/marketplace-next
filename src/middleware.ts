@@ -4,7 +4,12 @@ import { NextRequest } from 'next/server';
 
 const privateRoutes = ['/dashboard'];
 
-const publicRoutes = ['/sign-in', '/sign-up'];
+const publicRoutes = [
+    '/sign-in',
+    '/sign-up',
+    '/forgot-password',
+    '/reset-password',
+];
 
 export async function middleware(req: NextRequest) {
     const token = await getToken({ req });

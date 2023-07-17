@@ -74,7 +74,7 @@ const SignInForm = () => {
                 toast({
                     title: 'Success',
                     description: 'You have successfully logged in',
-                    variant: 'default',
+                    variant: 'success',
                 });
                 router.refresh();
             }
@@ -83,14 +83,14 @@ const SignInForm = () => {
                 toast({
                     title: 'Error',
                     description: callback.error,
-                    variant: 'default',
+                    variant: 'destructive',
                 });
             }
         });
     };
 
     return (
-        <div className={'flex flex-col justify-center gap-2'}>
+        <div className={'flex flex-col justify-center gap-2 px-10'}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Label htmlFor='name'>Email</Label>
                 <Input id='name' {...register('email')} type='email' />
@@ -106,7 +106,12 @@ const SignInForm = () => {
                         {errors.password.message}
                     </p>
                 )}
-                <Button type='submit' size='sm' className='mt-2 w-full'>
+                <Button
+                    type='submit'
+                    size='sm'
+                    className='mt-2 w-full'
+                    disabled={isLoading}
+                >
                     {isLoading ? (
                         <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
                     ) : (
@@ -127,6 +132,7 @@ const SignInForm = () => {
                     size='sm'
                     className='w-full'
                     onClick={loginWithGoogle}
+                    disabled={isLoading}
                 >
                     {isLoading ? (
                         <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
@@ -140,6 +146,7 @@ const SignInForm = () => {
                     size='sm'
                     className='w-full'
                     onClick={loginWithFacebook}
+                    disabled
                 >
                     {isLoading ? (
                         <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />

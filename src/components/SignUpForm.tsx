@@ -68,7 +68,7 @@ const SignUpForm = () => {
             toast({
                 title: 'Success',
                 description: 'User created successfully',
-                variant: 'default',
+                variant: 'success',
             });
             router.push('/sign-in');
         },
@@ -119,7 +119,6 @@ const SignUpForm = () => {
                     </Button>
                 </div>
             </form>
-            {/* if you have an account */}
             <div className='mt-4 flex flex-col items-center'>
                 <p className='text-sm text-muted-foreground'>
                     Already have an account?

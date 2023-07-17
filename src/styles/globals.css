@@ -85,3 +85,13 @@ body:has(> [data-radix-popper-content-wrapper]) {
 }
 
 /* TODO style for scrollbar */
+
+/* toasts success and info */
+
+.toast-success {
+    @apply border-green-300 bg-green-400 text-white;
+}
+
+.toast-info {
+    @apply bg-blue-500 text-white;
+}

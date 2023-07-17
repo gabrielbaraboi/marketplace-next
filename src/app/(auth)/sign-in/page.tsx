@@ -17,6 +17,14 @@ const page: FC<pageProps> = ({}) => {
             </div>
             <SignInForm />
             <p className='px-8 text-center text-sm text-muted-foreground'>
+                Forgot your password?{' '}
+                <Link
+                    href='/forgot-password'
+                    className='underline underline-offset-4 hover:text-primary'
+                >
+                    Reset password
+                </Link>
+                <br />
                 No account?{' '}
                 <Link
                     href='/sign-up'

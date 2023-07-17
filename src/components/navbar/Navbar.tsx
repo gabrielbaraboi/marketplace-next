@@ -2,6 +2,7 @@ import Container from '../Container';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
 import { getServerSession } from 'next-auth/next';
+
 import Link from 'next/link';
 import { UserNav } from './UserNav';
 import { buttonVariants } from '../ui/button';

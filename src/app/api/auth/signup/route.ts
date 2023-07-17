@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/react';
 import { SignUpValidator } from '@/lib/validators/signUp';
 import { z } from 'zod';
 
-export async function POST(request: Request, response: Response) {
+export async function POST(request: Request) {
     try {
         const session = await getSession();
         if (session) {

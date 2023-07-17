@@ -8,10 +8,10 @@ datasource db {
 }
 
 enum Role {
-  customer
-  support
-  storeManager
-  admin
+  CUSTOMER
+  SUPPORT
+  STORE_MANAGER
+  ADMIN
 }
 
 model Account {
@@ -31,6 +31,7 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@map("accounts")
 }
 
 model Session {
@@ -54,7 +55,10 @@ model User {
   sessions      Session[]
   products      Product[]
   orders        Order[]
-  role          Role      @default(customer)
+  role          Role      @default(CUSTOMER)
+  logs          Log[]
+
+  @@map("users")
 }
 
 model VerificationToken {
@@ -79,6 +83,8 @@ model Product {
   sellerId    String   @db.ObjectId
   orders      Order[]  @relation(fields: [orderIDs], references: [id])
   orderIDs    String[] @db.ObjectId
+
+  @@map("products")
 }
 
 model Order {
@@ -90,4 +96,18 @@ model Order {
   ordererId  String    @db.ObjectId
   products   Product[] @relation(fields: [productIDs], references: [id])
   productIDs String[]  @db.ObjectId
+
+  @@map("orders")
+}
+
+model Log {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  action    String
+  details   String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+
+  @@map("logs")
 }
