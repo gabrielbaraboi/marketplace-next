@@ -1,8 +1,9 @@
 import { getToken } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 
-const privateRoutes = ['/dashboard'];
+const privateRoutes = ['/dashboard', '/settings', '/profile'];
 
 const publicRoutes = [
     '/sign-in',
@@ -11,8 +12,11 @@ const publicRoutes = [
     '/reset-password',
 ];
 
-export async function middleware(req: NextRequest) {
-    const token = await getToken({ req });
+export async function middleware(req: NextRequest, res: NextResponse) {
+    const token = await getToken({
+        req,
+        raw: true,
+    });
 
     if (token) {
         if (publicRoutes.includes(req.nextUrl.pathname)) {

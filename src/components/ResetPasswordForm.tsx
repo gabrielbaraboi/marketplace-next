@@ -57,13 +57,11 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({ token }) => {
         },
         onError: (err) => {
             if (err instanceof AxiosError) {
-                if (err.response?.status === 404) {
-                    return toast({
-                        title: 'Error',
-                        description: 'Token not found',
-                        variant: 'destructive',
-                    });
-                }
+                return toast({
+                    title: 'Error',
+                    description: err.response?.data,
+                    variant: 'destructive',
+                });
             }
 
             return toast({

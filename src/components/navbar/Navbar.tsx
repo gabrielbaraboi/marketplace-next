@@ -1,7 +1,8 @@
+'use client';
+
 import Container from '../Container';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
-import { getServerSession } from 'next-auth/next';
 
 import Link from 'next/link';
 import { UserNav } from './UserNav';
@@ -9,13 +10,14 @@ import { buttonVariants } from '../ui/button';
 import MainNav from './MainNav';
 import { LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { authOptions } from '@/lib/auth';
+import { useSession } from 'next-auth/react';
 
 //TODO make navbar for mobile (add hamburger menu)
 
-const Navbar = async () => {
-    const session = await getServerSession(authOptions);
+const Navbar = () => {
+    const session = useSession();
 
+    console.log(session);
     return (
         <header className='fixed inset-x-0 top-0 z-10 h-fit w-full bg-gray-800 shadow-sm'>
             <Container>
@@ -23,8 +25,8 @@ const Navbar = async () => {
                     <div className='flex h-16 items-center justify-between'>
                         <Logo />
                         <SearchBar />
-                        {session?.user ? (
-                            <UserNav user={session.user} />
+                        {session?.data?.user ? (
+                            <UserNav user={session?.data?.user} />
                         ) : (
                             <Link
                                 href='/sign-in'

@@ -80,8 +80,6 @@ export async function PATCH(request: Request) {
             },
         });
 
-        console.log({ verificationToken });
-
         if (!verificationToken) {
             return new Response('Invalid token', {
                 status: 400,
@@ -89,7 +87,6 @@ export async function PATCH(request: Request) {
         }
 
         if (verificationToken.expires < new Date()) {
-            console.log('Token expired');
             return new Response('Token expired', {
                 status: 400,
             });

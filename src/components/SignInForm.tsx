@@ -66,8 +66,9 @@ const SignInForm = () => {
         setIsLoading(true);
         signIn('credentials', {
             ...data,
-            redirect: false,
         }).then((callback) => {
+            console.log(callback);
+
             setIsLoading(false);
 
             if (callback?.ok) {
@@ -76,10 +77,12 @@ const SignInForm = () => {
                     description: 'You have successfully logged in',
                     variant: 'success',
                 });
+                console.log('redirecting');
                 router.refresh();
             }
 
             if (callback?.error) {
+                console.log(callback);
                 toast({
                     title: 'Error',
                     description: callback.error,
